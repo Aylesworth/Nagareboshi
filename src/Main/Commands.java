@@ -50,7 +50,7 @@ public class Commands extends ListenerAdapter {
 			int a = Integer.parseInt(args[1]), b = Integer.parseInt(args[2]);
 			int ans = a + rd.nextInt(b - a + 1);
 			
-			event.getChannel().sendMessage("You got the number **" + ans + "**!").queue();
+			event.getChannel().sendMessage("You got **" + ans + "**!").queue();
 		}
 
 		// info command
