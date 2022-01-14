@@ -29,7 +29,7 @@ public class Commands extends ListenerAdapter {
 
 		// test command
 		if (args[0].equalsIgnoreCase(prefix + "test")) {
-			event.getChannel().sendTyping().queue();
+			
 			event.getChannel().sendMessage("This bot is working!").queue();
 		}
 
@@ -41,7 +41,7 @@ public class Commands extends ListenerAdapter {
 			}
 			String[] choices = line.toString().split("/");
 			String choice = choices[rd.nextInt(choices.length)].trim();
-			event.getChannel().sendTyping().queue();
+			
 			event.getChannel().sendMessage("I choose `" + choice + "`!").queue();
 		}
 
@@ -49,7 +49,7 @@ public class Commands extends ListenerAdapter {
 		else if (args[0].equalsIgnoreCase(prefix + "random")) {
 			int a = Integer.parseInt(args[1]), b = Integer.parseInt(args[2]);
 			int ans = a + rd.nextInt(b - a + 1);
-			event.getChannel().sendTyping().queue();
+			
 			event.getChannel().sendMessage("You got the number `" + ans + "`!").queue();
 		}
 
@@ -62,7 +62,7 @@ public class Commands extends ListenerAdapter {
 			embed.setAuthor("Aylesworth");
 			embed.setFooter("Bot created by Aylesworth#0764");
 			embed.setColor(Color.YELLOW);
-			event.getChannel().sendTyping().queue();
+			
 			event.getChannel().sendMessageEmbeds(embed.build()).queue();
 			embed.clear();
 		}
@@ -79,7 +79,7 @@ public class Commands extends ListenerAdapter {
 			embed.addField("`-tế somebody`", "Get văn mẫu", false);
 			embed.setFooter("Bot created by Aylesworth#0764");
 			embed.setColor(Color.GREEN);
-			event.getChannel().sendTyping().queue();
+			
 			event.getChannel().sendMessageEmbeds(embed.build()).queue();
 			embed.clear();
 		}
@@ -94,7 +94,7 @@ public class Commands extends ListenerAdapter {
 			if (isUnallowed(name)) {
 				name = event.getMember().getAsMention();
 			}
-			event.getChannel().sendTyping().queue();
+			
 			event.getChannel().sendMessage(Resources.texts[rd.nextInt(Resources.texts.length)].replaceAll("@", name))
 					.queue();
 		}
