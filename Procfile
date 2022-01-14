@@ -1,1 +1,1 @@
-Worker: javac -encoding UTF-8 -classpath ./JDA-5.0.0-alpha.4-withDependencies.jar ./src/Main/BotStartup.java ./src/Main/Commands.java ./src/Main/Resources.java; java -classpath ./JDA-5.0.0-alpha.4-withDependencies.jar;.;./src Main.BotStartup
+Worker: javac -encoding UTF-8 -classpath ./JDA-5.0.0-alpha.4-withDependencies.jar:.:./src ./src/Main/BotStartup.java ./src/Main/Commands.java ./src/Main/Resources.java; java -classpath ./JDA-5.0.0-alpha.4-withDependencies.jar:.:./src Main.BotStartup
