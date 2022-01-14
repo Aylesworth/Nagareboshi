@@ -42,7 +42,7 @@ public class Commands extends ListenerAdapter {
 			String[] choices = line.toString().split("/");
 			String choice = choices[rd.nextInt(choices.length)].trim();
 			
-			event.getChannel().sendMessage("I choose `" + choice + "`!").queue();
+			event.getChannel().sendMessage("I choose **" + choice + "**!").queue();
 		}
 
 		// random command
@@ -50,7 +50,7 @@ public class Commands extends ListenerAdapter {
 			int a = Integer.parseInt(args[1]), b = Integer.parseInt(args[2]);
 			int ans = a + rd.nextInt(b - a + 1);
 			
-			event.getChannel().sendMessage("You got the number `" + ans + "`!").queue();
+			event.getChannel().sendMessage("You got the number **" + ans + "**!").queue();
 		}
 
 		// info command
