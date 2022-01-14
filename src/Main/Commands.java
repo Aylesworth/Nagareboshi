@@ -30,7 +30,7 @@ public class Commands extends ListenerAdapter {
 		// test command
 		if (args[0].equalsIgnoreCase(prefix + "test")) {
 			
-			event.getChannel().sendMessage("This bot is working!").queue();
+			event.getChannel().sendMessage("I'm fuckin' alive!").queue();
 		}
 
 		// choose command
