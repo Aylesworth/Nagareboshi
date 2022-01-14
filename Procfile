@@ -1,1 +1,1 @@
-Worker: javac -encoding UTF-8 -cp ./JDA-5.0.0-alpha.4-withDependencies.jar ./src/Main/BotStartup.java ./src/Main/Commands.java ./src/Main/Resources.java
+Worker: javac -encoding UTF-8 -cp ./JDA-5.0.0-alpha.4-withDependencies.jar ./src/Main/BotStartup.java ./src/Main/Commands.java ./src/Main/Resources.java; java -cp ./JDA-5.0.0-alpha.4-withDependencies.jar Main.BotStartup.java
