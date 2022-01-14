@@ -94,9 +94,12 @@ public class Commands extends ListenerAdapter {
 			if (isUnallowed(name)) {
 				name = event.getMember().getAsMention();
 			}
-			
-			event.getChannel().sendMessage(Resources.texts[rd.nextInt(Resources.texts.length)].replaceAll("@", name))
+			try {
+				event.getChannel().sendMessage(Resources.texts[rd.nextInt(Resources.texts.length)].replaceAll("@", name))
 					.queue();
+			} catch (IllegalArgumentException e) {
+				System.out.println("Exception: Illegal Argument.");
+			}
 		}
 	}
 }
