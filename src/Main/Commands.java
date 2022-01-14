@@ -59,7 +59,6 @@ public class Commands extends ListenerAdapter {
 			embed.setTitle("Bot Info");
 			embed.setDescription("A bot that is created for fun");
 			embed.addField("Commands", "See `" + prefix + "help` for list of commands.", false);
-			embed.setAuthor("Aylesworth");
 			embed.setFooter("Bot created by Aylesworth#0764");
 			embed.setColor(Color.YELLOW);
 			
