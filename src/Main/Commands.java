@@ -9,11 +9,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import static Main.Resources.*;
 
 public class Commands extends ListenerAdapter {
-	private String prefix = "-";
-
-	public String getPrefix() {
-		return prefix;
-	}
+	private String prefix = BotStartup.getPrefix();
 
 	private String[] unallowed = { "dũng", "dung", "công", "đức anh", "đa", "đanh", "đ.anh", "đ. anh", "bale", "bêu",
 			"beu", "da", "d.anh", "danh" };
@@ -101,6 +97,7 @@ public class Commands extends ListenerAdapter {
 			String generated = texts[rd.nextInt(texts.length)].replaceAll("@", name);
 			divideMessageIfNeeded(generated, event);
 		}
+
 	}
 
 	private void divideMessageIfNeeded(String s, MessageReceivedEvent event) {
@@ -114,4 +111,5 @@ public class Commands extends ListenerAdapter {
 			divideMessageIfNeeded(s.substring(i + 1, s.length()), event);
 		}
 	}
+
 }
