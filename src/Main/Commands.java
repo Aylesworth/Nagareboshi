@@ -98,10 +98,11 @@ public class Commands extends ListenerAdapter {
 			if (isUnallowed(name)) {
 				name = event.getMember().getAsMention();
 			}
+			String generated = texts[rd.nextInt(texts.length)];
 			try {
-				event.getChannel().sendMessage(texts[rd.nextInt(texts.length)].replaceAll("@", name)).queue();
+				event.getChannel().sendMessage(generated.replaceAll("@", name)).queue();
 			} catch (IllegalArgumentException e) {
-				System.out.println("Exception: Illegal Argument.");
+				System.out.println("Illegal Argument Exception: " + generated);
 			}
 		}
 	}
