@@ -94,7 +94,7 @@ public class Commands extends ListenerAdapter {
 			for (int i = 1; i < args.length; i++) {
 				all.append(args[i] + " ");
 			}
-			String name = all.toString().strip();
+			String name = all.toString().trim();
 			if (isUnallowed(name)) {
 				name = event.getMember().getAsMention();
 			}
