@@ -94,15 +94,19 @@ public class Commands extends ListenerAdapter {
 			for (int i = 1; i < args.length; i++) {
 				all.append(args[i] + " ");
 			}
-			String name = all.toString().trim();
+			String name = all.toString().strip();
 			if (isUnallowed(name)) {
 				name = event.getMember().getAsMention();
 			}
-			String generated = texts[rd.nextInt(texts.length)];
+			String generated = texts[rd.nextInt(texts.length)].replaceAll("@", name);
 			try {
-				event.getChannel().sendMessage(generated.replaceAll("@", name)).queue();
+				event.getChannel().sendMessage(generated).queue();
 			} catch (IllegalArgumentException e) {
+				int i = generated.length() / 2;
+				while(generated.charAt(i) != ' ') i++;
 				System.out.println("Illegal Argument Exception: " + generated);
+				event.getChannel().sendMessage(generated.substring(0, i)).queue();
+				event.getChannel().sendMessage("(continued)\r\n"+generated.substring(i+1, generated.length())).queue();
 			}
 		}
 	}
