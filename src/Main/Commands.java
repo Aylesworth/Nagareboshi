@@ -6,9 +6,14 @@ import java.util.Random;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import static Main.Resources.*;
 
 public class Commands extends ListenerAdapter {
-	public String prefix = "-";
+	private String prefix = "-";
+
+	public String getPrefix() {
+		return prefix;
+	}
 
 	private String[] unallowed = { "dũng", "dung", "công", "đức anh", "đa", "đanh", "đ.anh", "đ. anh", "bale", "bêu",
 			"beu", "da", "d.anh", "danh" };
@@ -29,7 +34,7 @@ public class Commands extends ListenerAdapter {
 
 		// test command
 		if (args[0].equalsIgnoreCase(prefix + "test")) {
-			
+
 			event.getChannel().sendMessage("I'm fuckin' alive!").queue();
 		}
 
@@ -41,7 +46,7 @@ public class Commands extends ListenerAdapter {
 			}
 			String[] choices = line.toString().split("/");
 			String choice = choices[rd.nextInt(choices.length)].trim();
-			
+
 			event.getChannel().sendMessage("I choose **" + choice + "**!").queue();
 		}
 
@@ -49,7 +54,7 @@ public class Commands extends ListenerAdapter {
 		else if (args[0].equalsIgnoreCase(prefix + "random")) {
 			int a = Integer.parseInt(args[1]), b = Integer.parseInt(args[2]);
 			int ans = a + rd.nextInt(b - a + 1);
-			
+
 			event.getChannel().sendMessage("You got **" + ans + "**!").queue();
 		}
 
@@ -61,7 +66,7 @@ public class Commands extends ListenerAdapter {
 			embed.addField("Commands", "See `" + prefix + "help` for list of commands.", false);
 			embed.setFooter("Bot created by Aylesworth#0764");
 			embed.setColor(Color.YELLOW);
-			
+
 			event.getChannel().sendMessageEmbeds(embed.build()).queue();
 			embed.clear();
 		}
@@ -70,15 +75,15 @@ public class Commands extends ListenerAdapter {
 		else if (args[0].equalsIgnoreCase(prefix + "help")) {
 			EmbedBuilder embed = new EmbedBuilder();
 			embed.setTitle("List of Commands");
-			embed.addField("`-info`", "Bot info", false);
-			embed.addField("`-help`", "List of commands", false);
-			embed.addField("`-test`", "Check if the bot is alive", false);
-			embed.addField("`-choose choice1 / choice2 / ...`", "Get the bot to make a choice", false);
-			embed.addField("`-random a b`", "Get a random number in range a to b (inclusive)", false);
-			embed.addField("`-tế somebody`", "Get văn mẫu", false);
+			embed.addField("`" + prefix + "info`", "Bot info", false);
+			embed.addField("`" + prefix + "help`", "List of commands", false);
+			embed.addField("`" + prefix + "test`", "Check if the bot is alive", false);
+			embed.addField("`" + prefix + "choose choice1 / choice2 / ...`", "Get the bot to make a choice", false);
+			embed.addField("`" + prefix + "random a b`", "Get a random number in range a to b (inclusive)", false);
+			embed.addField("`" + prefix + "tế somebody`", "Get văn mẫu", false);
 			embed.setFooter("Bot created by Aylesworth#0764");
 			embed.setColor(Color.GREEN);
-			
+
 			event.getChannel().sendMessageEmbeds(embed.build()).queue();
 			embed.clear();
 		}
@@ -94,8 +99,7 @@ public class Commands extends ListenerAdapter {
 				name = event.getMember().getAsMention();
 			}
 			try {
-				event.getChannel().sendMessage(Resources.texts[rd.nextInt(Resources.texts.length)].replaceAll("@", name))
-					.queue();
+				event.getChannel().sendMessage(texts[rd.nextInt(texts.length)].replaceAll("@", name)).queue();
 			} catch (IllegalArgumentException e) {
 				System.out.println("Exception: Illegal Argument.");
 			}
