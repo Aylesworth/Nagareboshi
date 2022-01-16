@@ -7,21 +7,20 @@ import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import static Main.Resources.*;
+import static Main.BotStartup.*;
 
 public class Commands extends ListenerAdapter {
 	private String prefix = BotStartup.getPrefix();
 
-	private String[] unallowed = { "dũng", "dung", "công", "đức anh", "đa", "đanh", "đ.anh", "đ. anh", "bale", "bêu",
-			"beu", "da", "d.anh", "danh" };
+	/*
+	 * private String[] unallowed = { "dũng", "dung", "công", "đức anh", "đa",
+	 * "đanh", "đ.anh", "đ. anh", "bale", "bêu", "beu", "da", "d.anh", "danh" };
+	 */
 
-	private boolean isUnallowed(String s) {
-		for (String word : unallowed) {
-			if (s.toLowerCase().contains(word)) {
-				return true;
-			}
-		}
-		return false;
-	}
+	/*
+	 * private boolean isUnallowed(String s) { for (String word : unallowed) { if
+	 * (s.toLowerCase().contains(word)) { return true; } } return false; }
+	 */
 
 	@Override
 	public void onMessageReceived(MessageReceivedEvent event) {
@@ -91,9 +90,9 @@ public class Commands extends ListenerAdapter {
 				all.append(args[i] + " ");
 			}
 			String name = all.toString().trim();
-			if (isUnallowed(name)) {
-				name = event.getMember().getAsMention();
-			}
+			/*
+			 * if (isUnallowed(name)) { name = event.getMember().getAsMention(); }
+			 */
 			String generated = texts[rd.nextInt(texts.length)].replaceAll("@", name);
 			divideMessageIfNeeded(generated, event);
 		}
