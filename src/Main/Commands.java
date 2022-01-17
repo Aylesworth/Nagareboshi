@@ -58,7 +58,7 @@ public class Commands extends ListenerAdapter {
 			EmbedBuilder embed = new EmbedBuilder();
 			embed.setTitle("About me");
 			embed.setDescription("A bot that is created for fun");
-			embed.addField("Meaning of name", "The name Nagareboshi (流れ星), which means shooting star, was taken from the lyrics of YOASOBI's song Comet: 'Marude nagareboshi no you na namida'. You should also check out this wonderful emotional song!", false)
+			embed.addField("Meaning of name", "The name Nagareboshi (流れ星), which means shooting star, was taken from the lyrics of YOASOBI's song Comet: 'Marude nagareboshi no you na namida'. You should also check out this wonderful emotional song!", false);
 			embed.addField("Commands", "See `" + prefix + "help` for list of commands.", false);
 			embed.setFooter("Bot created by Aylesworth#0764");
 			embed.setColor(Color.YELLOW);
