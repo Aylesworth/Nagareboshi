@@ -1,5 +1,6 @@
 package main.command.commands;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -27,7 +28,7 @@ public class ChooseCommand implements ICommand {
 
 	@Override
 	public List<String> getAliases() {
-		return List.of("ch");
+		return Arrays.asList("ch");
 	}
 	
 	@Override

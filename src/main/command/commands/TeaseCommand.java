@@ -2,6 +2,7 @@ package main.command.commands;
 
 import static main.resources.TeaseResources.texts;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -45,7 +46,7 @@ public class TeaseCommand implements ICommand {
 
 	@Override
 	public List<String> getAliases() {
-		return List.of("te", "tế");
+		return Arrays.asList("te", "tế");
 	}
 
 	@Override
