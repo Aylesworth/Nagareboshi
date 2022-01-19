@@ -1,3 +1,4 @@
 eclipse.preferences.version=1
-encoding//src/Main/Commands.java=UTF-8
-encoding//src/Main/Resources.java=UTF-8
+encoding//src/main/Bot.java=UTF-8
+encoding//src/main/command/commands/TeaseCommand.java=UTF-8
+encoding//src/main/resources/TeaseResources.java=UTF-8
