@@ -1,1 +1,1 @@
-Worker: export CLASSPATH=.:./src; javac -encoding utf8 `find . -type f -name "*.java"`; java aylesw.meteor.Bot
+Worker: javac -encoding utf8 -classpath .:./src `find . -type f -name "*.java"`; java -classpath .:./src aylesw.meteor.Bot
