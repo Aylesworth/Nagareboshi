@@ -1,1 +1,1 @@
-Worker: java -cp .:src:target/classes aylesw.meteor.Bot
+worker: sh target/bin/Meteors

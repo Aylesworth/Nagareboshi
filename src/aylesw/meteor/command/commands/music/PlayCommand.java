@@ -27,11 +27,6 @@ public class PlayCommand implements ICommand {
         final Member self = ctx.getSelfMember();
         final GuildVoiceState selfVoiceState = self.getVoiceState();
 
-        if (!selfVoiceState.inVoiceChannel()) {
-            channel.sendMessage("I need to be in a voice channel first!").queue();
-            return;
-        }
-
         final Member member = ctx.getMember();
         final GuildVoiceState memberVoiceState = member.getVoiceState();
 
@@ -40,9 +35,13 @@ public class PlayCommand implements ICommand {
             return;
         }
 
-        if (!memberVoiceState.getChannel().equals(selfVoiceState.getChannel())) {
+        if (selfVoiceState.inVoiceChannel() && !memberVoiceState.getChannel().equals(selfVoiceState.getChannel())) {
             channel.sendMessage("I'm already in a different voice channel!").queue();
             return;
+        }
+
+        if (!selfVoiceState.inVoiceChannel()) {
+            new JoinCommand().handle(ctx);
         }
 
         String link = String.join(" ", ctx.getArgs());
