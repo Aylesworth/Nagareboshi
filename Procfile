@@ -1,1 +1,1 @@
-worker: sh target/bin/Meteors
+worker: sh target/bin/Meteor
