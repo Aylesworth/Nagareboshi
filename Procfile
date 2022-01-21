@@ -1,1 +1,1 @@
-Worker: java src/aylesw/meteor/Bot.java
+Worker: java -cp .:./src aylesw/meteor/Bot.java
