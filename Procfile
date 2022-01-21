@@ -1,1 +1,1 @@
-worker: export CLASSPATH=.:src:target/classes; sh target/bin/Meteor
+worker: sh target/classes/bin/Meteor

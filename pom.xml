@@ -95,7 +95,7 @@
                 <artifactId>appassembler-maven-plugin</artifactId>
                 <version>2.1.0</version>
                 <configuration>
-                    <assembleDirectory>target</assembleDirectory>
+                    <assembleDirectory>target/classes</assembleDirectory>
                     <programs>
                         <program>
                             <mainClass>aylesw.meteor.Bot</mainClass>
