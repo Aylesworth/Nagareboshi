@@ -1,1 +1,1 @@
-Worker: mvn exec:java -Dexec.mainClass=aylesw.meteor.Bot
+Worker: java src/aylesw/meteor/Bot.java
