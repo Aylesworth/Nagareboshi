@@ -27,7 +27,7 @@ public class JoinCommand implements ICommand {
         final GuildVoiceState memberVoiceState = member.getVoiceState();
 
         if (!memberVoiceState.inVoiceChannel()) {
-            channel.sendMessage("You need to be in a voice channel for this command to work").queue();
+            channel.sendMessage("You need to be in a voice channel to use this command.").queue();
             return;
         }
 
@@ -35,7 +35,7 @@ public class JoinCommand implements ICommand {
         final VoiceChannel memberChannel = memberVoiceState.getChannel();
 
         audioManager.openAudioConnection(memberChannel);
-        channel.sendMessageFormat("Connecting to \uD83D\uDD0A **%s**...", memberChannel.getName()).queue();
+        channel.sendMessageFormat("Connected to \uD83D\uDD0A **%s**.", memberChannel.getName()).queue();
 
     }
 

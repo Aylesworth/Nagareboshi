@@ -44,7 +44,7 @@ public class SkipCommand implements ICommand {
         }
 
         musicManager.scheduler.nextTrack();
-        channel.sendMessage("Skipped current track.").queue();
+        channel.sendMessage("Skipped the current track.").queue();
     }
 
     @Override
@@ -54,6 +54,6 @@ public class SkipCommand implements ICommand {
 
     @Override
     public String getHelp() {
-        return "Skips the current song";
+        return "Skips the current track";
     }
 }

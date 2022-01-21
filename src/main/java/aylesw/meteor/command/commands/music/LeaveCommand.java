@@ -48,7 +48,7 @@ public class LeaveCommand implements ICommand {
         final AudioManager audioManager = guild.getAudioManager();
 
         audioManager.closeAudioConnection();
-        channel.sendMessage("Left the voice channel.").queue();
+        channel.sendMessage("Disconnected from the voice channel.").queue();
     }
 
     @Override

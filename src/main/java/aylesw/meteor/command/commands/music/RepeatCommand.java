@@ -41,7 +41,7 @@ public class RepeatCommand implements ICommand {
         final boolean newRepeating = !musicManager.scheduler.repeating;
 
         musicManager.scheduler.repeating = newRepeating;
-        channel.sendMessageFormat("The player has been set to **%s**.", newRepeating ? "repeating" : "not repeating").queue();
+        channel.sendMessageFormat("Repeat mode is **%s**.", newRepeating ? "on" : "off").queue();
     }
 
     @Override
