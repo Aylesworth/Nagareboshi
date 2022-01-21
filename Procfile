@@ -1,1 +1,1 @@
-Worker: javac -encoding utf8 -classpath .:./src `find . -type f -name "*.java"`; java -classpath .:./src aylesw.meteor.Bot
+Worker: mvn exec:java -Dexec.mainClass=aylesw.meteor.Bot
