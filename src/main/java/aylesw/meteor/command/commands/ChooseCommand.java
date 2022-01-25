@@ -11,6 +11,11 @@ import aylesw.meteor.command.ICommand;
 public class ChooseCommand implements ICommand {
     @Override
     public void handle(CommandContext ctx) {
+        if (ctx.getArgs().isEmpty()) {
+            ctx.getChannel().sendMessage("You should give at least one choice!").queue();
+            return;
+        }
+
         Random rd = new Random();
         StringBuilder str = new StringBuilder();
         for (String arg : ctx.getArgs()) {

@@ -20,7 +20,7 @@ public class PlayCommand implements ICommand {
         final TextChannel channel = ctx.getChannel();
 
         if (ctx.getArgs().isEmpty()) {
-            channel.sendMessage("You should type `" + Config.getPrefix() + "play [youtube link]`!").queue();
+            channel.sendMessage("You should type `" + Config.getPrefix() + "play [song name / youtube link]`!").queue();
             return;
         }
 

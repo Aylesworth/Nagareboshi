@@ -3,6 +3,7 @@ package aylesw.meteor.command.commands;
 import aylesw.meteor.Config;
 import aylesw.meteor.command.CommandContext;
 import aylesw.meteor.command.ICommand;
+import net.dv8tion.jda.api.requests.restaction.MessageAction;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,13 +12,28 @@ import java.util.Random;
 public class RandomCommand implements ICommand {
     @Override
     public void handle(CommandContext ctx) {
-        Random rd = new Random();
-        int n = ctx.getArgs().toArray().length;
-        int[] args = new int[n];
-        for (int i = 0; i < n; i++) {
-            args[i] = Integer.parseInt(ctx.getArgs().get(i));
+        List<String> args = ctx.getArgs();
+        int n = args.toArray().length;
+        MessageAction wrongUsage = ctx.getChannel().sendMessage("Wrong Usage!\n" +
+                "You should type `" + Config.getPrefix() + "random [n1] [n2]`\n" +
+                "where n1 and n2 are two integers and n1 <= n2");
+
+        if (n != 2) {
+            wrongUsage.queue();
+            return;
         }
-        int ans = args[0] + rd.nextInt(args[1] - args[0] + 1);
+
+        int a = Integer.parseInt(args.get(0));
+        int b = Integer.parseInt(args.get(1));
+
+        if (a > b) {
+            wrongUsage.queue();
+            return;
+        }
+
+        Random rd = new Random();
+        int ans = a + rd.nextInt(b - a + 1);
+
         ctx.getEvent().getChannel().sendMessage("You got **" + ans + "**!").queue();
     }
 
@@ -33,7 +49,7 @@ public class RandomCommand implements ICommand {
 
     @Override
     public String getHelp() {
-        return "Gets a random number between `a` and `b`\n" + "Usage: `" + Config.getPrefix() + "random a b`\n" + "Aliases: rd, rand";
+        return "Gets a random number between `n1` and `n2`\n" + "Usage: `" + Config.getPrefix() + "random [n1] [n2]`\n" + "Aliases: rd, rand";
     }
 }
 

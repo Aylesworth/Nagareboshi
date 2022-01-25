@@ -28,6 +28,11 @@ public class TeaseCommand implements ICommand {
     public void handle(CommandContext ctx) {
         Random rd = new Random();
 
+        if (ctx.getArgs().isEmpty()) {
+            ctx.getChannel().sendMessage("You should give at least one word!").queue();
+            return;
+        }
+
         StringBuilder builder = new StringBuilder();
         for (String str : ctx.getArgs()) {
             builder.append(str + " ");
