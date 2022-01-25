@@ -1,4 +1,4 @@
-package aylesw.meteor.command.commands.music;
+package aylesw.meteor.command.commands;
 
 import aylesw.meteor.Config;
 import aylesw.meteor.command.CommandContext;
@@ -12,6 +12,7 @@ public class ChangePrefixCommand implements ICommand {
     public void handle(CommandContext ctx) {
         String newPrefix = ctx.getArgs().get(0);
         Config.setPrefix(newPrefix);
+        ctx.getChannel().sendMessageFormat("Prefix changed to `%s`.", newPrefix).queue();
     }
 
     @Override
