@@ -56,7 +56,7 @@ public class PlayerManager {
             public void playlistLoaded(AudioPlaylist playlist) {
                 final List<AudioTrack> tracks = playlist.getTracks();
 
-                channel.sendMessage("Adding to queue: `")
+                /* channel.sendMessage("Adding to queue: `")
                         .append(String.valueOf(tracks.size()))
                         .append("` tracks from playlist `")
                         .append(playlist.getName())
@@ -65,7 +65,9 @@ public class PlayerManager {
 
                 for (final AudioTrack track : tracks) {
                     musicManager.scheduler.queue(track);
-                }
+                } */
+
+                trackLoaded(tracks.get(0));
             }
 
             @Override
