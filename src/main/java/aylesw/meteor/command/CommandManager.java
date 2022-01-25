@@ -20,6 +20,7 @@ public class CommandManager {
         addCommand(new RandomCommand());
         addCommand(new ChooseCommand());
         addCommand(new TeaseCommand());
+        addCommand(new ChangePrefixCommand());
         addCommand(new JoinCommand());
         addCommand(new PlayCommand());
         addCommand(new StopCommand());
