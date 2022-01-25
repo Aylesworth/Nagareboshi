@@ -70,17 +70,12 @@ public class PlayerManager {
                     musicManager.scheduler.queue(track);
                 } */
 
-                if (tracks.isEmpty()) {
-                    channel.sendMessage("No results found. Please try again.").queue();
-                    return;
-                }
-
                 trackLoaded(tracks.get(0));
             }
 
             @Override
             public void noMatches() {
-                //
+                channel.sendMessage("No results found. Please try again.").queue();
             }
 
             @Override
