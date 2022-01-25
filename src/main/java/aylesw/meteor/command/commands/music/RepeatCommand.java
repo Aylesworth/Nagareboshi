@@ -51,7 +51,7 @@ public class RepeatCommand implements ICommand {
 
     @Override
     public String getHelp() {
-        return "Loops the current track";
+        return "Loops the current track\n" + "Aliases: rp, rpt, rep";
     }
 
     @Override

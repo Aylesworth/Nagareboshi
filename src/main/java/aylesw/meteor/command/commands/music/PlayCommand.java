@@ -61,7 +61,8 @@ public class PlayCommand implements ICommand {
     @Override
     public String getHelp() {
         return "Plays a song\n" +
-                "Usage: `" + Config.getPrefix() + "play <youtube link>`";
+                "Usage: `" + Config.getPrefix() + "play [song name / youtube link]`\n" +
+                "Aliases: p";
     }
 
     private boolean isUrl(String url) {

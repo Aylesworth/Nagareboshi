@@ -40,7 +40,7 @@ public class QueueCommand implements ICommand {
                     .append(String.valueOf(i + 1))
                     .append(" `")
                     .append(info.title)
-                    .append(" by ")
+                    .append("` by `")
                     .append(info.author)
                     .append("` [`")
                     .append(formatTime(track.getDuration()))
@@ -71,7 +71,7 @@ public class QueueCommand implements ICommand {
 
     @Override
     public String getHelp() {
-        return "Shows the queued up tracks";
+        return "Shows the queued up tracks\n" + "Aliases: q";
     }
 
     @Override

@@ -9,6 +9,9 @@ import net.dv8tion.jda.api.entities.GuildVoiceState;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.TextChannel;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class SkipCommand implements ICommand {
     @Override
     public void handle(CommandContext ctx) {
@@ -54,6 +57,11 @@ public class SkipCommand implements ICommand {
 
     @Override
     public String getHelp() {
-        return "Skips the current track";
+        return "Skips the current track\n" + "Aliases: s";
+    }
+
+    @Override
+    public List<String> getAliases() {
+        return Arrays.asList("s");
     }
 }

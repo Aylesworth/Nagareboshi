@@ -58,7 +58,7 @@ public class LeaveCommand implements ICommand {
 
     @Override
     public String getHelp() {
-        return "Makes the bot leave the voice channel";
+        return "Makes the bot leave the voice channel\n" + "Aliases: lv";
     }
 
     @Override
