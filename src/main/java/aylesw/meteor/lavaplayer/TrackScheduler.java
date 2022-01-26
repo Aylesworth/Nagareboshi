@@ -1,5 +1,6 @@
 package aylesw.meteor.lavaplayer;
 
+import aylesw.meteor.command.commands.music.NowPlayingCommand;
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
 import com.sedmelluq.discord.lavaplayer.player.event.AudioEventAdapter;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
@@ -27,6 +28,7 @@ public class TrackScheduler extends AudioEventAdapter {
 
     public void nextTrack() {
         this.player.startTrack(this.queue.poll(), false);
+        new NowPlayingCommand().handle(ctx);
     }
 
     @Override
