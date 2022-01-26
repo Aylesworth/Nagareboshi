@@ -28,7 +28,6 @@ public class TrackScheduler extends AudioEventAdapter {
 
     public void nextTrack() {
         this.player.startTrack(this.queue.poll(), false);
-        new NowPlayingCommand().handle(ctx);
     }
 
     @Override
