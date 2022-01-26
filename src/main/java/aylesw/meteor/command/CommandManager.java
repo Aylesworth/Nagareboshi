@@ -23,6 +23,7 @@ public class CommandManager {
         addCommand(new ChangePrefixCommand());
         addCommand(new JoinCommand());
         addCommand(new PlayCommand());
+        addCommand(new PlayListCommand());
         addCommand(new StopCommand());
         addCommand(new SkipCommand());
         addCommand(new NowPlayingCommand());
