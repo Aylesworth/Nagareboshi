@@ -85,6 +85,42 @@ public class PlayerManager {
         });
     }
 
+    public void loadAndPlayList(TextChannel channel, String trackUrl) {
+        final GuildMusicManager musicManager = this.getMusicManager(channel.getGuild());
+        this.audioPlayerManager.loadItemOrdered(musicManager, trackUrl, new AudioLoadResultHandler() {
+            @Override
+            public void trackLoaded(AudioTrack track) {
+                channel.sendMessage("You must pass in a playlist.").queue();
+            }
+
+            @Override
+            public void playlistLoaded(AudioPlaylist playlist) {
+                final List<AudioTrack> tracks = playlist.getTracks();
+
+                channel.sendMessage("Adding to queue: `")
+                        .append(String.valueOf(tracks.size()))
+                        .append("` tracks from playlist `")
+                        .append(playlist.getName())
+                        .append("`")
+                        .queue();
+
+                for (final AudioTrack track : tracks) {
+                    musicManager.scheduler.queue(track);
+                }
+            }
+
+            @Override
+            public void noMatches() {
+                channel.sendMessage("No results found. Please try again.").queue();
+            }
+
+            @Override
+            public void loadFailed(FriendlyException e) {
+                //
+            }
+        });
+    }
+
     private static String formatTime(long timeInMillis) {
         final long hours = timeInMillis / TimeUnit.HOURS.toMillis(1);
         final long minutes = timeInMillis / TimeUnit.MINUTES.toMillis(1);
