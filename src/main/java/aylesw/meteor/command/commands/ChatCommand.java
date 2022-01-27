@@ -14,7 +14,7 @@ public class ChatCommand implements ICommand {
         StringBuilder builder = new StringBuilder();
 
         for (String arg : args) {
-            builder.append(arg + " ");
+            builder.append(arg).append(" ");
         }
 
         String qtext = builder.toString().trim();
