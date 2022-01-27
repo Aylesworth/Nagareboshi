@@ -17,6 +17,7 @@ public class CommandManager {
 
     public CommandManager() {
         addCommand(new PingCommand());
+        addCommand(new ChatCommand());
         addCommand(new RandomCommand());
         addCommand(new ChooseCommand());
         addCommand(new TeaseCommand());
