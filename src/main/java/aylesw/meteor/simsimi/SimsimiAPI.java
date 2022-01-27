@@ -8,6 +8,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
 /**
  * SimsimiAPI.java - a class represents for requesting information to Server.
@@ -50,8 +51,7 @@ public class SimsimiAPI {
 			// Because of supporting 45 Languages, Encoding is UTF-8.
 			String text = URLEncoder.encode(requestParam.getText(), "UTF-8");
 
-			String requestURL = url + "?key=" + key + "&lc=" + lc + "&ft=" + ft
-					+ "&text=" + text;
+			String requestURL = url + "?text=" + text + "&lc=" + lc;
 
 			URL openURL = new URL(requestURL);
 			httpConn = (HttpURLConnection) openURL.openConnection();
@@ -63,7 +63,7 @@ public class SimsimiAPI {
 								// resource.
 			
 			stream = openURL.openStream();
-			inputStreamReader = new InputStreamReader(stream, "UTF-8");
+			inputStreamReader = new InputStreamReader(stream, StandardCharsets.UTF_8);
 			bufferReader = new BufferedReader(inputStreamReader);
 
 			while ((buffer = bufferReader.readLine()) != null) {
