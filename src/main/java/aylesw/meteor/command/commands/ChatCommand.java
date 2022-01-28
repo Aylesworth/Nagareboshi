@@ -82,6 +82,10 @@ public class ChatCommand implements ICommand {
     @Override
     public String getHelp() {
         return "To chat with the bot\n" + "Usage: `" + Config.getPrefix() + "chat [text]`\n"
+                + "Use `" + Config.getPrefix() + "chat set [lang]` to set the language.\n"
+                + "Use `" + Config.getPrefix() + "chat lang` for list of supported languages.\n"
+                + "Use `" + Config.getPrefix() + "chat currentlang` to see the current language.\n"
+                + "Default language is `vn - Vietnamese`."
                 + "Aliases: c, or you can even type `- [text]`";
     }
 

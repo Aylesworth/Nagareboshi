@@ -15,11 +15,11 @@ import java.util.HashMap;
 public class Client {
 	private static String answer = "";
 
-	private static String lc = "vn";
+	private static String defaultLc = "vn";
 
 	private static HashMap<Guild, String> guildLc = new HashMap<Guild, String>();
 
-	public static void setLc(Guild guild, String newLc) {
+	public static void setLc(Guild guild, String lc) {
 		guildLc.put(guild, lc);
 	}
 
@@ -27,7 +27,7 @@ public class Client {
 		if (guildLc.containsKey(guild)) {
 			return guildLc.get(guild);
 		}
-		return lc;
+		return defaultLc;
 	}
 
 	public static String getAnswer(String text, Guild guild) {
