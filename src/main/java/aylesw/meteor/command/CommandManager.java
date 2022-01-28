@@ -60,8 +60,19 @@ public class CommandManager {
     }
 
     public void handle(GuildMessageReceivedEvent event) {
-        String[] split = event.getMessage().getContentRaw().replaceFirst("(?i)" + Pattern.quote(Config.getPrefix()), "")
+        String contentRaw = event.getMessage().getContentRaw();
+
+        String[] split = contentRaw.replaceFirst("(?i)" + Pattern.quote(Config.getPrefix()), "")
                 .split("\\s+");
+
+        if (contentRaw.startsWith(Config.getPrefix() + " ") && split.length > 0) {
+            event.getChannel().sendTyping().queue();
+            List<String> args = Arrays.asList(split);
+            CommandContext ctx = new CommandContext(event, args);
+            new ChatCommand().handle(ctx);
+            return;
+        }
+
         String invoke = split[0].toLowerCase();
         ICommand cmd = this.getCommand(invoke);
         if (cmd != null) {

@@ -63,7 +63,7 @@ public class SimsimiAPI {
 								// resource.
 			
 			stream = openURL.openStream();
-			inputStreamReader = new InputStreamReader(stream, StandardCharsets.UTF_8);
+			inputStreamReader = new InputStreamReader(stream, "UTF-8");
 			bufferReader = new BufferedReader(inputStreamReader);
 
 			while ((buffer = bufferReader.readLine()) != null) {
