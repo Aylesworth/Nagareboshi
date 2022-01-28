@@ -66,11 +66,11 @@ public class Client {
 				}
 			}
 			answer = str.toString();
-			if (answer.equals("I don't know what you're saying. Please teach me.")) {
+			if (answer.contains("I don't know what you're saying. Please teach me")) {
 				answer = "Whatever";
-			} else if (answer.equals("Tôi không biết bạn đang nói gì. Hãy dạy tôi")) {
+			} else if (answer.contains("Tôi không biết bạn đang nói gì. Hãy dạy tôi")) {
 				answer = "Sao cũng được";
-			} else if (answer.equals("私が知らないと言葉です。教えてください")) {
+			} else if (answer.contains("私が知らないと言葉です。教えてください")) {
 				answer = "どうでもいい";
 			}
 		}
