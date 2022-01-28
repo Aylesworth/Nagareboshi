@@ -25,7 +25,7 @@ public class SimsimiAPI {
 	private InputStream stream;
 	private String buffer;
 	private String result;
-	private final String url = "https://api.simsimi.net/v2/";
+	private final String url = "https://api-sv2.simsimi.net/v2/";
 
 	public SimsimiAPI() {
 		bufferReader = null;
