@@ -11,7 +11,7 @@ package aylesw.meteor.simsimi;
 public class Client {
 	private static String answer = "";
 
-	private static String lc = "en";
+	private static String lc = "vn";
 
 	public static void setLc(String newLc) {
 		lc = newLc;
