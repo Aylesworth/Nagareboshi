@@ -29,37 +29,17 @@ public class ChatCommand implements ICommand {
         Collections.sort(keys);
 
         if (args.size() == 1 && args.get(0).equalsIgnoreCase("lang")) {
-            EmbedBuilder embed = new EmbedBuilder();
-            embed.setTitle("List of languages supported")
-                    .setDescription("Type `" + Config.getPrefix() + "chat set [lang]` to set your language.\n"
-                            + "Type `" + Config.getPrefix() + "chat currentlang` to see current language.");
-            for (int i = 0; i < 24; i++) {
-                embed.addField("`" + keys.get(i) + " : " + languageCodes.get(keys.get(i)) + "`", "", true);
+            StringBuilder str = new StringBuilder();
+            str.append("**List of languages supported**\n")
+                    .append("Type `").append(Config.getPrefix()).append("chat set [lang]` to set your language.\n")
+                    .append("Type `").append(Config.getPrefix()).append("chat currentlang` to see current language.")
+                    .append("\n```");
+            for (String key : keys) {
+                str.append("\n").append(key).append(" : ").append(languageCodes.get(key));
             }
-            embed.setColor(Color.PINK);
-            ctx.getChannel().sendMessageEmbeds(embed.build()).queue();
-            embed.clear();
+            str.append("```");
 
-            for (int i = 24; i < 48; i++) {
-                embed.addField("`" + keys.get(i) + " : " + languageCodes.get(keys.get(i)) + "`", "", true);
-            }
-            embed.setColor(Color.PINK);
-            ctx.getChannel().sendMessageEmbeds(embed.build()).queue();
-            embed.clear();
-
-            for (int i = 48; i < 72; i++) {
-                embed.addField("`" + keys.get(i) + " : " + languageCodes.get(keys.get(i)) + "`", "", true);
-            }
-            embed.setColor(Color.PINK);
-            ctx.getChannel().sendMessageEmbeds(embed.build()).queue();
-            embed.clear();
-
-            for (int i = 72; i < keys.size(); i++) {
-                embed.addField("`" + keys.get(i) + " : " + languageCodes.get(keys.get(i)) + "`", "", true);
-            }
-            embed.setColor(Color.PINK);
-            ctx.getChannel().sendMessageEmbeds(embed.build()).queue();
-            embed.clear();
+            ctx.getChannel().sendMessage(str.toString()).queue();
             return;
         }
 
