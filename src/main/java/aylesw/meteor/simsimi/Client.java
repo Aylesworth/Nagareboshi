@@ -1,5 +1,9 @@
 package aylesw.meteor.simsimi;
 
+import net.dv8tion.jda.api.entities.Guild;
+
+import java.util.HashMap;
+
 /**
  * Client.java - a client class for requesting service to Simsimi Server.
  * 
@@ -13,15 +17,20 @@ public class Client {
 
 	private static String lc = "vn";
 
-	public static void setLc(String newLc) {
-		lc = newLc;
+	private static HashMap<Guild, String> guildLc = new HashMap<Guild, String>();
+
+	public static void setLc(Guild guild, String newLc) {
+		guildLc.put(guild, lc);
 	}
 
-	public static String getLc() {
+	public static String getLc(Guild guild) {
+		if (guildLc.containsKey(guild)) {
+			return guildLc.get(guild);
+		}
 		return lc;
 	}
 
-	public static String getAnswer(String text) {
+	public static String getAnswer(String text, Guild guild) {
 		
 		// Create SimSimiAPI instance.
 		SimsimiAPI simsimiAPI = new SimsimiAPI();
@@ -30,7 +39,7 @@ public class Client {
 		RequestParam requestParam = new RequestParam();
 		
 		requestParam.setText(text);
-		requestParam.setLc(lc);
+		requestParam.setLc(getLc(guild));
 		
 		// A response for requesting information. Response consists of JSON format.
 		String response = simsimiAPI.request(requestParam);

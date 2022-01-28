@@ -6,6 +6,7 @@ import aylesw.meteor.command.CommandContext;
 import aylesw.meteor.command.ICommand;
 import aylesw.meteor.simsimi.Client;
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.Guild;
 
 import java.awt.*;
 import java.util.Arrays;
@@ -43,9 +44,11 @@ public class ChatCommand implements ICommand {
             return;
         }
 
+        Guild guild = ctx.getGuild();
+
         if (args.size() == 2 && args.get(0).equalsIgnoreCase("set")) {
             if (keys.contains(args.get(1))) {
-                Client.setLc(args.get(1));
+                Client.setLc(guild, args.get(1));
                 ctx.getChannel().sendMessage("Language changed to **" + languageCodes.get(args.get(1)) + "**!").queue();
             } else {
                 ctx.getChannel().sendMessage("Not a valid language code.\n" +
@@ -55,7 +58,7 @@ public class ChatCommand implements ICommand {
         }
 
         if (args.size() == 1 && args.get(0).equalsIgnoreCase("currentlang")) {
-            ctx.getChannel().sendMessage("The current language is **" + languageCodes.get(Client.getLc()) + "**.").queue();
+            ctx.getChannel().sendMessage("The current language is **" + languageCodes.get(Client.getLc(guild)) + "**.").queue();
             return;
         }
 
@@ -66,7 +69,7 @@ public class ChatCommand implements ICommand {
         }
 
         String qtext = builder.toString().trim();
-        String atext = Client.getAnswer(qtext);
+        String atext = Client.getAnswer(qtext, guild);
 
         ctx.getChannel().sendMessage(atext).queue();
     }
