@@ -67,9 +67,9 @@ public class Client {
 			}
 			answer = str.toString();
 			if (answer.equals("I don't know what you're saying. Please teach me.")) {
-				answer = "Whatever.";
+				answer = "Whatever";
 			} else if (answer.equals("Tôi không biết bạn đang nói gì. Hãy dạy tôi")) {
-				answer = "Sao cũng được.";
+				answer = "Sao cũng được";
 			} else if (answer.equals("私が知らないと言葉です。教えてください")) {
 				answer = "どうでもいい";
 			}
