@@ -38,8 +38,26 @@ public class TeaseCommand implements ICommand {
             builder.append(str + " ");
         }
 
-        String name = builder.toString().trim();
-        String generated = texts[rd.nextInt(texts.length)].replaceAll("@", name);
+        String[] newArgs = builder.toString().split("[|]");
+
+        String name = newArgs[0].trim();
+        String generated = "";
+        if (newArgs.length == 1) {
+            generated = texts[rd.nextInt(texts.length)].replaceAll("@", name);
+        } else if (newArgs.length == 2) {
+            for (String text : texts) {
+                if (text.contains(newArgs[1].trim())) {
+                    generated = text.replaceAll("@", name);
+                    break;
+                }
+            }
+            if (generated.isEmpty()) {
+                generated = "No text with `" + newArgs[1] + "` found.";
+            }
+        } else {
+            generated = "Wrong Usage!\n"
+                    + "See `" + Config.getPrefix() + "help tease` for the right usage of this command.";
+        }
 
         divideMessageIfNeeded(generated, ctx);
     }
@@ -56,7 +74,9 @@ public class TeaseCommand implements ICommand {
 
     @Override
     public String getHelp() {
-        return "Teases somebody with a random wall of text\n" + "Usage: `" + Config.getPrefix() + "tease [somebody]`\n"
+        return "Teases somebody with a random wall of text\n"
+                + "Usage: `" + Config.getPrefix() + "tease [somebody]` or `"
+                + Config.getPrefix() + "tease [somebody] | [keywords to search for the text you want]`\n"
                 + "Aliases: te, tế";
     }
 
