@@ -1,22 +1,31 @@
 package aylesw.meteor.command.commands;
 
-import static aylesw.meteor.simsimi.LanguageCode.*;
 import aylesw.meteor.Config;
 import aylesw.meteor.command.CommandContext;
 import aylesw.meteor.command.ICommand;
 import aylesw.meteor.simsimi.Client;
-import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
 
-import java.awt.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
-import java.util.Set;
+
+import static aylesw.meteor.simsimi.LanguageCode.languageCodes;
 
 public class ChatCommand implements ICommand {
     @Override
     public void handle(CommandContext ctx) {
+        Path currentRelativePath = Paths.get("");
+        String s = currentRelativePath.toAbsolutePath().toString();
+        File log = new File(s + "\\chat-log.txt");
         List<String> args = ctx.getArgs();
 
         if (args.isEmpty()) {
@@ -72,6 +81,22 @@ public class ChatCommand implements ICommand {
         String atext = Client.getAnswer(qtext, guild);
 
         ctx.getChannel().sendMessage(atext).queue();
+
+        try {
+            PrintWriter writer = new PrintWriter(log, StandardCharsets.UTF_8);
+            Date time = new Date();
+            int year = time.getYear() % 100;
+            int month = time.getMonth() + 1;
+            int date = time.getDate();
+            int hour = time.getHours();
+            int minute = time.getMinutes();
+            writer.printf("[%d/%d/%d %d:%d] <%s>\n%-15s: %s\n%-15s: %s\n\n", year, month, date, hour, minute, ctx.getGuild().getName(), ctx.getMember().getUser().getName(), qtext, ctx.getSelfUser().getName(), atext);
+            writer.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Exception: File not found.");
+        } catch (IOException e) {
+            System.out.println("Exception: IO Exception.");
+        }
     }
 
     @Override

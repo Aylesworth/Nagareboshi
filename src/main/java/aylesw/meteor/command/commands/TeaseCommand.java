@@ -46,7 +46,7 @@ public class TeaseCommand implements ICommand {
             generated = texts[rd.nextInt(texts.length)].replaceAll("@", name);
         } else if (newArgs.length == 2) {
             for (String text : texts) {
-                if (text.contains(newArgs[1].trim())) {
+                if (text.toLowerCase().contains(newArgs[1].trim().toLowerCase())) {
                     generated = text.replaceAll("@", name);
                     break;
                 }
@@ -75,7 +75,7 @@ public class TeaseCommand implements ICommand {
     @Override
     public String getHelp() {
         return "Teases somebody with a random wall of text\n"
-                + "Usage: `" + Config.getPrefix() + "tease [somebody]` or `"
+                + "Usage: `" + Config.getPrefix() + "tease [somebody]`\nor `"
                 + Config.getPrefix() + "tease [somebody] | [keywords to search for the text you want]`\n"
                 + "Aliases: te, tế";
     }
