@@ -1,6 +1,7 @@
 package aylesw.meteor.command.commands;
 
 import aylesw.meteor.command.CommandContext;
+import aylesw.meteor.command.Common;
 import aylesw.meteor.command.ICommand;
 import net.dv8tion.jda.api.JDA;
 
@@ -19,11 +20,7 @@ public class PingCommand implements ICommand {
             );
         } else {
             String arg = args.get(0);
-            String s="";
-            do {
-                s+=arg;
-            } while(s.length()+arg.length()<2000);
-            ctx.getChannel().sendMessage(s).queue();
+            Common.divideMessageIfNeeded(arg.repeat(200),ctx);
         }
     }
 

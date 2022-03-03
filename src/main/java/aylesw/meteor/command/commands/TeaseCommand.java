@@ -8,21 +8,10 @@ import java.util.Random;
 
 import aylesw.meteor.Config;
 import aylesw.meteor.command.CommandContext;
+import aylesw.meteor.command.Common;
 import aylesw.meteor.command.ICommand;
 
 public class TeaseCommand implements ICommand {
-
-    private void divideMessageIfNeeded(String s, CommandContext ctx) {
-        try {
-            ctx.getChannel().sendMessage(s).queue();
-        } catch (IllegalArgumentException e) {
-            int i = s.length() / 2;
-            while (s.charAt(i) != ' ' && s.charAt(i) != '\n')
-                i++;
-            divideMessageIfNeeded(s.substring(0, i), ctx);
-            divideMessageIfNeeded(s.substring(i + 1, s.length()), ctx);
-        }
-    }
 
     @Override
     public void handle(CommandContext ctx) {
@@ -59,7 +48,7 @@ public class TeaseCommand implements ICommand {
                     + "See `" + Config.getPrefix() + "help tease` for the right usage of this command.";
         }
 
-        divideMessageIfNeeded(generated, ctx);
+        Common.divideMessageIfNeeded(generated, ctx);
     }
 
     @Override
