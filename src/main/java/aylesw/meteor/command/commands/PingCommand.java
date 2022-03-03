@@ -20,9 +20,9 @@ public class PingCommand implements ICommand {
         } else {
             String arg = args.get(0);
             String s="";
-            while(s.length()<2000) {
+            do {
                 s+=arg;
-            }
+            } while(s.length()+arg.length()<2000);
             ctx.getChannel().sendMessage(s).queue();
         }
     }
