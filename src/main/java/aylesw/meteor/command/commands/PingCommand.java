@@ -18,7 +18,12 @@ public class PingCommand implements ICommand {
                     (ping) -> ctx.getChannel().sendMessageFormat("Reset ping: %sms\nWS ping: %sms", ping, jda.getGatewayPing()).queue()
             );
         } else {
-            ctx.getChannel().sendMessage(args.get(0).repeat(50)).queue();
+            String arg = args.get(0);
+            String s="";
+            while(s.length()<2000) {
+                s+=arg;
+            }
+            ctx.getChannel().sendMessage(s).queue();
         }
     }
 
