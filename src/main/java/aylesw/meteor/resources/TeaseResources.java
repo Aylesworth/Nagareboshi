@@ -91,6 +91,16 @@ public class TeaseResources {
                     "Trước đây @ vốn thiếu ngủ và ban đêm ngủ rất không ngon giấc, từ lúc chuyển sang lập trình, nhờ những dòng lệnh cài đặt sẵn, @ ngủ ngon hơn cả một đứa bé, mơ những giấc mơ tuyệt vời, góp phần làm cho cuộc sống @ thư thái hơn.\n" +
                     "Về ngoại hình, @ bị béo bụng do stress nhiều, mặt mũi lúc nào cũng đờ đẫn, mập nhưng yếu ngoe, không đánh đấm lại được ai … Chỉ sau một thời gian ngắn học về cơ sở dữ liệu, web và tháo lắp máy tính … Cơ bụng đã xuất hiện, múi nào ra múi nấy, rắn chắc hơn bao giờ hết. Nhờ những thuật toán chạy trong đầu, @ luôn tính toán được điểm yếu của đối phương, ra đòn quyết định. Các bao cát mình tập boxing phải thay liên tục từ ngày @ học IT.\n" +
                     "Với tất cả các thay đổi từ trong ra ngoài, từ thu nhập đến địa vị xã hội, tính cách, tình cảm, ngoại hình và sức khỏe đều theo hướng tích cực hơn, @ xin chốt lại vấn đề muốn review : Những gì vozer tả về ngành CNTT cũng có đúng có sai, ngành nào có làm cũng mới có ăn. Lợi ích của IT là có nhưng không ảo như nhiểu vozer troll, cái gì cũng phải cố gắng, dấn thân, bản lĩnh đương đầu mới có thành quả.",
+            "Chuyện là hôm nay @ mặc cái áo có logo Hoshi VN to đùng sau lưng và 1 cái logo nhỏ bên ngực trái ra quán cafe ngồi, bỗng @ thấy 2 ông anh dáng người khá đô con, lại xăm ở cánh tay, trông tầm 30-33 lại gần bàn của @ rồi ngồi kế bên @, 1 anh vỗ vai @ bảo:\n" +
+                    "- Mày hay đọc truyện sếch phải không?\n" +
+                    "@ mới khúm núm trả lời kiểu sợ bị ăn đấm:\n" +
+                    "- Dạ vâng ạ, có chuyện gì vậy anh...\n" +
+                    "Bất ngờ @ thấy anh vung tay cao lên, theo bản năng @ ôm đầu cúi xuống vì nghĩ là bị ăn đấm rồi. Bỗng vai @ nghe tiếng bốp bốp nhỏ và tiếng cười của 2 anh. Thì ra chỉ là cái vỗ vai, anh bảo:\n" +
+                    "- Bọn anh cũng hay chơi game sếch, nay đi cafe tình cờ gặp chú em ở đây cũng là mem Hoshi luôn thì nứng quá.\n" +
+                    "@ cũng trấn tĩnh lại và bọn họ nói chuyện 1 lúc lâu, @ mới biết một anh tên Minh, một anh tên Rine, 2 anh đều là 2 translator rất thành công, có xe hơi nhà lầu, vợ đẹp và cũng rất hiền, vui tính.\n" +
+                    "Nói chuyện một hồi lâu thì anh bảo:\n" +
+                    "- Thôi bọn anh có việc, chầu này chú để anh trả. - Nói xong anh dúi vào tay @ 2 triệu bảo tặng @ uống Cafe rồi ra thanh toán cho @, @ ríu rít cảm ơn và 2 anh chỉ cười rồi đưa tay tạm biệt @ và mở cửa chiếc siêu xe lái đi chậm rãi. Đấy, người dịch VN toàn người tốt chứ có phải đầu to mắt cận ăn mặc lôi thôi như các bác bảo đâu. Sống ở đời đừng bao giờ khinh thường người khác các bác ạ.",
+            
 
 
     };
